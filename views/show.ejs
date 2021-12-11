@@ -11,7 +11,14 @@
       <a href="/">Back to Home</a>
     </nav>
     <h1><%=card.name %></h1>
-    Name: <%= card.name%>
+    Name: <%= card.name%><br />
+    Price: <%= card.prices_usd%><br />
+    CMC: <%= card.cmc%><br />
+    Type: <%= card.type_line%><br />
+    Rules Text: <%= card.oracle_text%><br />
+    
+    <img src="<%= card.img_uris_normal %>" alt="<%= card.name %>">
+
 
   </body>
 </html>

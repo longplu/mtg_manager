@@ -12,7 +12,7 @@
     <ul>
       <% cards.forEach(card => { %>
          <li>
-           <a href='/<%= card._id %>/edit'><%= card.qty%>X</a>
+           <a href='/<%= card._id %>/edit'><%= card.qty%>x</a>
 
             <a href="/<%= card._id %>">
              <%=card.name %>
@@ -36,6 +36,6 @@
       TOTAL: $<%= Total.toFixed(2) %>
   </h3>
 
-  
+
   </body>
 </html>

@@ -18,8 +18,6 @@ cardsRouter.get('/seed', async (req,res) => {
             purchase_uris_tcgplayer: 'https://shop.tcgplayer.com/product/productsearch?id=190753&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall',
             type_line: 'Snow Creature — Treefolk',
             mana_cost: '{2}{G}{U}',
-            power: '*',
-            toughness: '*',
             oracle_text: 'Trample\nAbominable Treefolk\'s power and toughness are each equal to the number of snow permanents you control.\nWhen Abominable Treefolk enters the battlefield, tap target creature an opponent controls. That creature doesn\'t untap during its controller\'s next untap step.',
             cmc: 4,
             list: 'Wishlist'
@@ -32,8 +30,6 @@ cardsRouter.get('/seed', async (req,res) => {
             purchase_uris_tcgplayer: 'https://shop.tcgplayer.com/product/productsearch?id=190753&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall',
             type_line: 'Snow Creature — Treefolk',
             mana_cost: '{2}{G}{U}',
-            power: '*',
-            toughness: '*',
             oracle_text: 'Trample\nAbominable Treefolk\'s power and toughness are each equal to the number of snow permanents you control.\nWhen Abominable Treefolk enters the battlefield, tap target creature an opponent controls. That creature doesn\'t untap during its controller\'s next untap step.',
             cmc: 4,
             list: 'Wishlist'
@@ -46,8 +42,6 @@ cardsRouter.get('/seed', async (req,res) => {
             purchase_uris_tcgplayer: 'https://shop.tcgplayer.com/product/productsearch?id=190753&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall',
             type_line: 'Snow Creature — Treefolk',
             mana_cost: '{2}{G}{U}',
-            power: '*',
-            toughness: '*',
             oracle_text: 'Trample\nAbominable Treefolk\'s power and toughness are each equal to the number of snow permanents you control.\nWhen Abominable Treefolk enters the battlefield, tap target creature an opponent controls. That creature doesn\'t untap during its controller\'s next untap step.',
             cmc: 4,
             list: 'Wishlist'
@@ -107,6 +101,11 @@ cardsRouter.put('/:id', (req, res) => {
 
 //CREATE
 cardsRouter.post('/', (req, res) => {
+  console.log(req.body)
+  req.body.qty = parseInt(req.body.qty)
+  req.body.prices_usd = parseInt(req.body.prices_usd)
+  req.body.cmc = parseInt(req.body.cmc)
+  console.log(req.body, 'after')
   Card.create(req.body, (error, createdCard) => {
     res.redirect('/') // <-- new stuff right here
   });
@@ -125,7 +124,7 @@ Card.findById(req.params.id, (err, card) => {
 cardsRouter.get("/:id", (req, res) => {
   Card.findById(req.params.id, (err, card) => {
     res.render("show.ejs", {
-      card,
+      card
     });
   });
 });

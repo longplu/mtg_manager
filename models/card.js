@@ -9,10 +9,8 @@ const cardSchema = new Schema({
   purchase_uris_tcgplayer: { type: String, required: false },
   type_line: { type: String, required: true },
   mana_cost: { type: String, required: true },
-  power: { type: String, required: false },
-  toughness: { type: String, required: false },
-  oracle_text: { type: String, required: true },
-  cmc: { type: Number, required: true },
+  oracle_text: { type: String, required: false },
+  cmc: { type: Number, required: false },
   list: { type: String, required: true }
 },)
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Cards</title>
+	</head>
+	<body>
+		<h1>Edit Card Page</h1>
+		<form action="/" method="POST">
+            Quantity: <input type="number" name="qty" value="<%= card.qty %>"/><br />
+            List: <select name="list" id="list" value="<%= card.list %>">
+            <option value="<%= card.list %>"><%= card.list %></option>
+            </select>
+            <!-- <input type="text" name="list" value=/><br /> -->
+			<input type="submit" name="" value="Add Cards" />
+		</form>
+	</body>
+</html>

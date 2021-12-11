@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for a card</title>
+</head>
+<body>
+    <h1>Search for a card</h1>
+    <nav>
+        <a href="/">Back to Home</a>
+        <a href="/new">Add a Card</a>
+    </nav>
+    <input type="text">
+    <button>Search</button><br />
+    <div id="container"></div>
+
+    <script>
+        const buttonElement = document.querySelector('button');
+        const inputElement = document.querySelector('input');
+
+        buttonElement.addEventListener('click', handleClick);
+
+        async function handleClick() {
+            // const response = await fetch('/');
+            // const data = await response.text();
+            // console.log(data)
+            
+            const searchTerm = inputElement.value;
+            const response = await fetch('https://api.scryfall.com/cards/search?q=' + searchTerm)
+            const data =await response.json();
+            console.log(data);
+            
+            const list = data.data.map(card => {
+                return `<li>${card.name}</li>`
+            }).join('');
+
+
+
+            // const list = data.term.map(card => {
+            //     return `<li>${card.name}</li>`
+            // }).join('');
+
+            container.innerHTML = list;
+        }
+
+    </script>
+
+
+</body>
+</html>

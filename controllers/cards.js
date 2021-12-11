@@ -1,6 +1,9 @@
 // Require dependencies
 const express = require('express');
 const Card = require('../models/card')
+const axios = require('axios');
+const BASE_URL = 'https://api.scryfall.com/cards/search';
+
 // Create router object
 const cardsRouter = express.Router();
 
@@ -8,6 +11,7 @@ const cardsRouter = express.Router();
 cardsRouter.get('/seed', async (req,res) => {
     const data = [
         {
+            qty: 1,
             name: 'Abominable Treefolk',
             prices_usd: 0.19,
             img_uris_normal: 'https://c1.scryfall.com/file/scryfall-cards/normal/front/1/e/1eddb834-ea01-44e2-afca-bd9a4ebbdb94.jpg?1562202283',
@@ -17,9 +21,11 @@ cardsRouter.get('/seed', async (req,res) => {
             power: '*',
             toughness: '*',
             oracle_text: 'Trample\nAbominable Treefolk\'s power and toughness are each equal to the number of snow permanents you control.\nWhen Abominable Treefolk enters the battlefield, tap target creature an opponent controls. That creature doesn\'t untap during its controller\'s next untap step.',
-            cmc: 4.0
+            cmc: 4,
+            list: 'Wishlist'
         },
         {
+            qty: 1,  
             name: 'Abominable Treefolk',
             prices_usd: 0.19,
             img_uris_normal: 'https://c1.scryfall.com/file/scryfall-cards/normal/front/1/e/1eddb834-ea01-44e2-afca-bd9a4ebbdb94.jpg?1562202283',
@@ -29,9 +35,11 @@ cardsRouter.get('/seed', async (req,res) => {
             power: '*',
             toughness: '*',
             oracle_text: 'Trample\nAbominable Treefolk\'s power and toughness are each equal to the number of snow permanents you control.\nWhen Abominable Treefolk enters the battlefield, tap target creature an opponent controls. That creature doesn\'t untap during its controller\'s next untap step.',
-            cmc: 4
+            cmc: 4,
+            list: 'Wishlist'
         },
         {
+            qty: 1,
             name: 'Abominable Treefolk',
             prices_usd: 0.19,
             img_uris_normal: 'https://c1.scryfall.com/file/scryfall-cards/normal/front/1/e/1eddb834-ea01-44e2-afca-bd9a4ebbdb94.jpg?1562202283',
@@ -41,7 +49,8 @@ cardsRouter.get('/seed', async (req,res) => {
             power: '*',
             toughness: '*',
             oracle_text: 'Trample\nAbominable Treefolk\'s power and toughness are each equal to the number of snow permanents you control.\nWhen Abominable Treefolk enters the battlefield, tap target creature an opponent controls. That creature doesn\'t untap during its controller\'s next untap step.',
-            cmc: 4
+            cmc: 4,
+            list: 'Wishlist'
         }
     ];
     await Card.deleteMany({});
@@ -58,6 +67,16 @@ cardsRouter.get("/", (req, res) => {
       cards: card,
     });
   });
+});
+
+// SEARCH
+cardsRouter.get("/search", (req, res) => {
+    const term = req.query.term;
+    if(term) {
+      res.json({ term });
+    } else {
+      res.render('search.ejs');
+    }
 });
 
 // NEW

@@ -9,6 +9,7 @@ A simple CRUD app for saving MTG cards in a wish list that market price of the c
 - JavaScript
 - Node
 - Express
+- EJS
 - MongoDB
 - Heroku
 - scryfall API

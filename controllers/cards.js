@@ -92,19 +92,18 @@ Card.findByIdAndDelete(req.params.id, (err, data) => {
 });
 
 // UPDATE
-cardsRouter.put('/:id', (req, res) => {
-
-Card.findByIdAndUpdate(
-  req.params.id,
-  req.body,
-  {
-    new: true
-  },
-  (err, card) => {
-    res.redirect('/' + req.params.id)
-  }
-)
-})
+cardsRouter.put('/:id', (req, res) => {  
+  Card.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true
+    },
+    (err, card) => {
+      res.redirect('/')
+    }
+  )
+  })
 
 //CREATE
 cardsRouter.post('/', (req, res) => {
@@ -126,7 +125,7 @@ Card.findById(req.params.id, (err, card) => {
 cardsRouter.get("/:id", (req, res) => {
   Card.findById(req.params.id, (err, card) => {
     res.render("show.ejs", {
-      card: card,
+      card,
     });
   });
 });

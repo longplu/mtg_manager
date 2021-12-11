@@ -10,7 +10,9 @@
 		<h1>New Card Page</h1>
 		<form action="/" method="POST">
             Quantity: <input type="number" name="qty" /><br />
-
+			List: <select name="list" id="list" value="<%= card.list %>">
+				<option value="<%= card.list %>"><%= card.list %></option>
+				</select>
 			<input type="submit" name="" value="Add Cards" />
 		</form>
 	</body>

@@ -8,13 +8,16 @@
 	</head>
 	<body>
 		<h1>Edit Card Page</h1>
-		<form action="/" method="POST">
+		<nav>
+			<a href="/">Back to Home</a>
+		  </nav>
+		  <form action="/<%= card._id %>?_method=PUT" method="POST">
             Quantity: <input type="number" name="qty" value="<%= card.qty %>"/><br />
             List: <select name="list" id="list" value="<%= card.list %>">
             <option value="<%= card.list %>"><%= card.list %></option>
             </select>
             <!-- <input type="text" name="list" value=/><br /> -->
-			<input type="submit" name="" value="Add Cards" />
+			<input type="submit" name="" value="Edit Cards" />
 		</form>
 	</body>
 </html>

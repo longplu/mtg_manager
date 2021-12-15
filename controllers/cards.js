@@ -52,13 +52,13 @@ cardsRouter.get('/seed', async (req,res) => {
     ];
     await Card.deleteMany({});
     await Card.create(data);
-    res.redirect('/');
+    res.redirect('/wishlist/');
 });
 
 //INDUCES
 
 // INDEX
-cardsRouter.get("/", (req, res) => {
+cardsRouter.get("/wishlist/", (req, res) => {
   Card.find({}, (error, card) => {
     res.render("index.ejs", {
       cards: card,
@@ -77,19 +77,19 @@ cardsRouter.get("/search", (req, res) => {
 });
 
 // NEW
-cardsRouter.get('/new', (req, res) => {
+cardsRouter.get('/wishlist/new', (req, res) => {
   res.render('new.ejs');
 })
 
 // DELETE
-cardsRouter.delete('/:id', (req, res) => {
+cardsRouter.delete('/wishlist/:id', (req, res) => {
 Card.findByIdAndDelete(req.params.id, (err, data) => {
-  res.redirect('/')
+  res.redirect('/wishlist/')
 });
 });
 
 // UPDATE
-cardsRouter.put('/:id', (req, res) => {  
+cardsRouter.put('/wishlist/:id', (req, res) => {  
   Card.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -97,13 +97,13 @@ cardsRouter.put('/:id', (req, res) => {
       new: true
     },
     (err, card) => {
-      res.redirect('/')
+      res.redirect('/wishlist/')
     }
   )
   })
 
 //CREATE
-cardsRouter.post('/', (req, res) => {
+cardsRouter.post('/wishlist/', (req, res) => {
   // console.log(req.body)
   axios.get(BASE_URL + req.body.scryfall_id).then(data => {
     
@@ -118,12 +118,12 @@ cardsRouter.post('/', (req, res) => {
     req.body.qty = parseInt(req.body.qty)
 
   Card.create(req.body, (error, createdCard) => {
-    res.redirect('/') // <-- new stuff right here
+    res.redirect('/wishlist/') // <-- new stuff right here
   })});
 });
 
 // EDIT
-cardsRouter.get('/:id/edit', (req, res) => {
+cardsRouter.get('/wishlist/:id/edit', (req, res) => {
 Card.findById(req.params.id, (err, card) => {
   res.render('edit.ejs', {
     card
@@ -132,10 +132,11 @@ Card.findById(req.params.id, (err, card) => {
 });
 
 // SHOW
-cardsRouter.get("/:id", (req, res) => {
+cardsRouter.get("/wishlist/:id", (req, res) => {
   Card.findById(req.params.id, (err, card) => {
+
     res.render("show.ejs", {
-      card
+      card: card
     });
   });
 });

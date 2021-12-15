@@ -15,10 +15,10 @@
     <ul>
       <% cards.forEach(card => { %>
          <li class="marginListItem">
-          <form action='/<%= card.id %>?_method=DELETE' method='POST'>
-           <a href='/<%= card._id %>/edit'><%= card.qty%>x</a>
+          <form action='/wishlist/<%= card.id %>?_method=DELETE' method='POST'>
+           <a href='/wishlist/<%= card._id %>/edit'><%= card.qty%>x</a>
 
-            <a href="/<%= card._id %>">
+            <a href="/wishlist/<%= card._id %>">
              <%=card.name %>
             </a>
 

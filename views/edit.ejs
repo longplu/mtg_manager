@@ -12,9 +12,9 @@
 	<body>
 		<h1>Edit Card Page</h1>
 		<nav>
-			<a href="/">⮐ return home</a>
+			<a href="/wishlist/">⮐ return home</a>
 		  </nav>
-		  <form action="/<%= card._id %>?_method=PUT" method="POST">
+		  <form action="/wishlist/<%= card._id %>?_method=PUT" method="POST">
             Quantity: <input type="number" name="qty" value="<%= card.qty %>"/><br />
             List: <select name="list" id="list" value="<%= card.list %>">
             <option value="<%= card.list %>"><%= card.list %></option>

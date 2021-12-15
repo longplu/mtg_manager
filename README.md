@@ -1,6 +1,6 @@
-# MTG Manager
+# MTG Wish List
 
-A simple CRUD app for saving MTG cards in a wish list that market price of the cards and a total market price for the wish list. Additional management feature include creating multiple decks.
+A simple CRUD app for saving MTG cards in a wish list that show market price of the cards and a total market price for the wish list. Additional management feature include creating multiple decks.
 
 ## Technologies USED
 

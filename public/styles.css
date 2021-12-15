@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #E1C681;
+    height: 100vh;
+    font-family: 'Beleren Bold';
+}
+
+
+header, footer {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: 'Beleren SmallCaps Bold';
+    background-color: black;
+    color: white;
+    height: 5rem;
+}
+
+footer{
+    justify-content: center;
+    align-items: center;
+}
+
+#addCards {
+    font-size: smaller;
+}
+
+.indent2rem{
+    margin-left: 2rem;
+}
+
+.marginListItem{
+    margin: 1rem auto;
+}
+
+.fillerDiv{
+    height: 100vh;
+}

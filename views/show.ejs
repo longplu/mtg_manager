@@ -4,20 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://unpkg.com/@saeris/typeface-beleren-bold@latest/index.css" rel="stylesheet" type="text/css" />
+
     <title>Card Details</title>
   </head>
   <body>
     <nav>
-      <a href="/">Back to Home</a>
+      <a href="/">⮐ return home</a>
     </nav>
     <h1><%= card.name %></h1>
     Name: <%= card.name%><br />
     Price: <%= card.prices_usd%><br />
-    CMC: <%= card.cmc%><br />
+    Mana Cost: <%= card.mana_cost%><br />
     Type: <%= card.type_line%><br />
     Rules Text: <%= card.oracle_text%><br />
     
-    <img src="<%= card.img_uris_normal %>" alt="<%= card.name %>">
+    <a href="<%= card.purchase_uris_tcgplayer %>" target="_blank"><img src="<%= card.img_uris_normal %>" alt="<%= card.name %>"></a>
 
 
   </body>

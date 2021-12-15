@@ -25,6 +25,7 @@ db.on("connected", () => console.log("mongo connected"));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
 // Mount Middleware
+app.use(express.static('public'));
 app.use(express.urlencoded({extended: false})); //creates req.body
 
 app.use(methodOverride('_method'));

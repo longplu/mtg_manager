@@ -13,6 +13,7 @@ A simple CRUD app for saving MTG cards in a wish list that market price of the c
 - MongoDB
 - Heroku
 - scryfall API
+- Axios
 
 ## Screenshots
 

@@ -20,7 +20,7 @@ A simple CRUD app for saving MTG cards in a wish list that market price of the c
 
 # Getting Started
 
-[Click here](#) to see the site live
+[Click here](https://mtg-wishlist.herokuapp.com/wishlist) to see the site live
 
 
 ## Roadmap
